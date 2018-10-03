@@ -95,3 +95,5 @@ C:\GIT\WebApi\WebApiLearning\WebApiLearning\WebApiLearning\obj\Debug\WebApiLearn
 C:\GIT\WebApi\WebApiLearning\WebApiLearning\WebApiLearning\obj\Debug\WebApiLearning.csproj.CopyComplete
 C:\GIT\WebApi\WebApiLearning\WebApiLearning\WebApiLearning\obj\Debug\WebApiLearning.dll
 C:\GIT\WebApi\WebApiLearning\WebApiLearning\WebApiLearning\obj\Debug\WebApiLearning.pdb
+C:\GIT\WebApi\WebApiLearning\WebApiLearning\WebApiLearning\bin\FromHeaderAttribute.dll
+C:\GIT\WebApi\WebApiLearning\WebApiLearning\WebApiLearning\bin\Swagger.Net.dll
