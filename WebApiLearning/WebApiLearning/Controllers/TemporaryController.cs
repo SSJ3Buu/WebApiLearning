@@ -4,21 +4,86 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApiLearning.Models.Temporary;
 
 namespace WebApiLearning.Controllers
 {
-    public class ValuesController : ApiController
+    public class TemporaryController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        public List<Person> persons = FillTemplateData();
+
+        public static List<Person> FillTemplateData()
         {
-            return new string[] { "value1", "value2" };
+            List<Person> persons = new List<Person>()
+                                            {
+                                                new Person()
+                                                {
+                                                    Name = "John",
+                                                    SecondName = "Michael",
+                                                    BirthDate = new DateTime(1992, 9, 1),
+                                                    Address = new Address()
+                                                    {
+                                                        StreetName = "Johnowska",
+                                                        StreetNumber = "1a",
+                                                        PostalCode = "00-123",
+                                                        City = "Michaelów"
+                                                    },
+                                                    Hobbies = new List<Hobbies>()
+                                                    {
+                                                        new Hobbies()
+                                                        {
+                                                            HobbyName = "Szachy"
+                                                        },
+                                                        new Hobbies()
+                                                        {
+                                                            HobbyName = "Rybki"
+                                                        }
+                                                    }
+                                                },
+                                                new Person()
+                                                {
+                                                    Name = "Jack",
+                                                    SecondName = "Daniels",
+                                                    BirthDate = new DateTime(1990, 9, 1),
+                                                    Address = new Address()
+                                                    {
+                                                        StreetName = "Whiskey",
+                                                        StreetNumber = "69",
+                                                        PostalCode = "69-666",
+                                                        City = "On Ice"
+                                                    },
+                                                    Hobbies = new List<Hobbies>()
+                                                    {
+                                                        new Hobbies()
+                                                        {
+                                                            HobbyName = "Imprezy"
+                                                        },
+                                                        new Hobbies()
+                                                        {
+                                                            HobbyName = "Alkohol"
+                                                        }
+                                                    }
+                                                }
+                                             };
+            return persons;
+        }
+        // GET api/values
+        public List<Person> Get()
+        {
+            return persons;
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public Person Get(int id)
         {
-            return "value";
+            if(id < persons.Count()-1)
+            {
+                return persons.ElementAt(id);
+            }
+            else
+            {
+                return persons.FirstOrDefault();
+            }
         }
 
         // POST api/values
